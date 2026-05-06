@@ -35,10 +35,9 @@ export function applyMove(state, pitIndex) {
 
   const ownPits = next.currentPlayer === 1 ? player1Pits : player2Pits;
   const ownStore = next.currentPlayer === 1 ? player1Store : player2Store;
-  const oppPits = next.currentPlayer === 1 ? player2Pits : player1Pits;
 
   if (ownPits.includes(cursor) && next.pits[cursor] === 1) {
-    const oppositeIndex = oppPits[ownPits.indexOf(cursor)];
+    const oppositeIndex = boardSize - 2 - cursor;
     if (next.pits[oppositeIndex] > 0) {
       next.pits[ownStore] += next.pits[cursor] + next.pits[oppositeIndex];
       next.pits[cursor] = 0;
