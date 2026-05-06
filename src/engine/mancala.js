@@ -33,6 +33,33 @@ export function applyMove(state, pitIndex) {
     stones--;
   }
 
+  const ownPits = next.currentPlayer === 1 ? player1Pits : player2Pits;
+  const ownStore = next.currentPlayer === 1 ? player1Store : player2Store;
+  const oppPits = next.currentPlayer === 1 ? player2Pits : player1Pits;
+
+  if (ownPits.includes(cursor) && next.pits[cursor] === 1) {
+    const oppositeIndex = oppPits[ownPits.indexOf(cursor)];
+    if (next.pits[oppositeIndex] > 0) {
+      next.pits[ownStore] += next.pits[cursor] + next.pits[oppositeIndex];
+      next.pits[cursor] = 0;
+      next.pits[oppositeIndex] = 0;
+    }
+  }
+
+  const p1Empty = player1Pits.every(i => next.pits[i] === 0);
+  const p2Empty = player2Pits.every(i => next.pits[i] === 0);
+
+  if (p1Empty || p2Empty) {
+    player1Pits.forEach(i => { next.pits[player1Store] += next.pits[i]; next.pits[i] = 0; });
+    player2Pits.forEach(i => { next.pits[player2Store] += next.pits[i]; next.pits[i] = 0; });
+    next.gameOver = true;
+    const p1Score = next.pits[player1Store];
+    const p2Score = next.pits[player2Store];
+    if (p1Score > p2Score) next.winner = 1;
+    else if (p2Score > p1Score) next.winner = 2;
+    else next.winner = 'tie';
+  }
+
   next.currentPlayer = next.currentPlayer === 1 ? 2 : 1;
   return next;
 }
