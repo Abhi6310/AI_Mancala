@@ -12,3 +12,27 @@ export function createBoard() {
   player2Pits.forEach(i => { pits[i] = initialStones; });
   return { pits, currentPlayer: 1, gameOver: false, winner: null };
 }
+
+export function getValidMoves(state) {
+  const pits = state.currentPlayer === 1 ? player1Pits : player2Pits;
+  return pits.filter(i => state.pits[i] > 0);
+}
+
+export function applyMove(state, pitIndex) {
+  const next = { ...state, pits: [...state.pits] };
+  const opponentStore = next.currentPlayer === 1 ? player2Store : player1Store;
+
+  let stones = next.pits[pitIndex];
+  next.pits[pitIndex] = 0;
+  let cursor = pitIndex;
+
+  while (stones > 0) {
+    cursor = (cursor + 1) % boardSize;
+    if (cursor === opponentStore) continue;
+    next.pits[cursor]++;
+    stones--;
+  }
+
+  next.currentPlayer = next.currentPlayer === 1 ? 2 : 1;
+  return next;
+}
