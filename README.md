@@ -94,19 +94,11 @@ npm run dev
 ## Project Structure
 
 ```
-AI_Mancala/
-├── src/
-│   ├── engine/
-│   │   ├── mancala.js        # game state, move logic, win condition
-│   │   └── ai.js             # random, minimax, alpha-beta
-│   ├── components/
-│   │   ├── Board.jsx         # pit grid, stone counts, click handler
-│   │   ├── Pit.jsx           # individual pit with count display
-│   │   └── DifficultySelect.jsx
-│   └── App.jsx
-├── notebook/
-│   └── mancala_experiments.ipynb
-└── public/
+src/
+  engine/       game rules and AI algorithms
+  components/   React UI components
+  styles/       CSS design system
+notebook/       Python research and benchmarks
 ```
 
 ---
