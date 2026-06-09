@@ -2,6 +2,8 @@
 
 **[Live Demo](https://abhi6310.github.io/AI_Mancala).** Browser-playable Mancala built in React and deployed to GitHub Pages with no backend. Four AI difficulty levels from random play to alpha-beta pruning at depth 10, all running client-side and benchmarked across 100-game reproducible trials.
 
+![Gameplay demo of AI Mancala](.github/assets/mancala_demo.gif)
+
 ---
 
 ## Rules
