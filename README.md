@@ -53,7 +53,7 @@ Baseline: `P1_mancala - P2_mancala`
 
 Extended: `(P1_mancala - P2_mancala) + 0.1 * (P1_pit_stones - P2_pit_stones)`
 
-The 0.1 coefficient keeps stone differential dominant while rewarding board position; tested across values from 0.05 to 0.5.
+The 0.1 coefficient keeps stone differential dominant while rewarding board position.
 
 | Depth | P1 Wins | Ties | Avg Turns | Avg Time/Game |
 |---:|---:|---:|---:|---:|
