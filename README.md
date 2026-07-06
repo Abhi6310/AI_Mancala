@@ -1,6 +1,8 @@
 # AI Mancala
 
-**[Live Demo](https://abhi6310.github.io/AI_Mancala).** Browser-playable Mancala built in React and deployed to GitHub Pages with no backend. Four AI difficulty levels from random play to alpha-beta pruning at depth 10, all running client-side and benchmarked across 100-game reproducible trials.
+**[Live Demo](https://abhinavchalise.github.io/AI_Mancala/).** Browser-playable Mancala built in React and deployed to GitHub Pages with no backend. Four AI difficulty levels from random play to alpha-beta pruning at depth 10, all running client-side and benchmarked across 100-game reproducible trials.
+
+![Gameplay demo of AI Mancala](.github/assets/mancala_demo.gif)
 
 ---
 
@@ -76,18 +78,7 @@ Minimax performs a full DFS to a fixed depth, alternating max/min layers with ga
 
 AI logic was developed and benchmarked in Python, then ported to JavaScript for client-side play.
 
----
-
-## Running Locally
-
 **Requires:** Node 18+. No API keys or environment variables.
-
-```bash
-git clone https://github.com/Abhi6310/AI_Mancala.git
-cd AI_Mancala
-npm install
-npm run dev
-```
 
 ---
 
@@ -96,8 +87,8 @@ npm run dev
 ```
 src/
   engine/       game rules and AI algorithms
-  components/   React UI components
-  styles/       CSS design system
+  components/   React UI
+  styles/       CSS
 notebook/       Python research and benchmarks
 ```
 
